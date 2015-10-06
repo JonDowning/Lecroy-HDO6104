@@ -53,6 +53,7 @@ FindScale(Channel,DSO)
 % total number of sweeps (AverLength) is reached. Time to wait for the
 % instrument is calculated from AverLength*Freq
 
+[ HistRowNumAll, AllHistData ] = GetHistory(Channel, Sweeps, Freq, DSO)
 %SAVEFROMHIST 
 % This script turns on the history and clear all previous data
 % The user is then asked if data is ready to be collected. This is done for
@@ -69,7 +70,7 @@ FindScale(Channel,DSO)
 % History function may speed up the measurement time (although not
 % necessarily the processing time!)
 
-
+[ HistRowNumAll, AllHistData ] = CleanHistoryData( HistRowNumAll, AllHistData )
 %CLEANHISTORYDATA 
 % Cleans data set recorded by GetHistory.m for additional analysis
 % Removes all zeros from matrices and lines everything up
